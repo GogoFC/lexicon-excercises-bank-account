@@ -5,8 +5,9 @@ import org.iban4j.Iban;
 
 public class BankAccount {
 
-    private Iban accountNumber = Iban.random(CountryCode.SE);
+    private Iban accountNumber = Iban.random(CountryCode.SE); // = Iban.random(CountryCode.SE);
     private double accountBalance;
+    //private String customerName = null;
     private String customerName;
     private String customerEmail;
     private String customerPhone;
@@ -17,10 +18,12 @@ public class BankAccount {
 
     public BankAccount ( String customerName, String customerPhone, String customerEmail, double accountBalance ){
         setCustomerName(customerName);
+        //this.customerName = customerName;
         setCustomerPhone(customerPhone);
         setCustomerEmail(customerEmail);
         //setAccountNumber(accountNumber);
         setAccountBalance(accountBalance);
+        //this.accountNumber = Iban.random(CountryCode.SE);
     }
 
     public String customerInfo(){
@@ -47,6 +50,18 @@ public class BankAccount {
     }
 
     public void setCustomerName(String customerName) {
+        if (customerName.equalsIgnoreCase("name")) throw new IllegalArgumentException("Use a valid name");
+        //if (customerName.isEmpty() || customerName.isBlank()) throw new IllegalArgumentException("Name null");
+        //if (customerName.isEmpty()) throw new IllegalArgumentException("Length 0");
+        // if (customerName.length() == 0) throw new IllegalArgumentException("Length 0");
+        //if (customerName.isBlank()) throw new IllegalArgumentException("Name == isBlank");
+        //if (customerName.isEmpty()) throw new IllegalArgumentException("Name == isEmpty");
+        if (customerName.isBlank()) throw new IllegalArgumentException("Use a valid name");
+        // Having a " " space doesn't make a string empty.
+        // Having a " " space makes the string Blank.
+        //if (this.customerName == null) throw  new IllegalArgumentException("GM: Condition 'customerName == null' is always 'false' ");
+        if (customerName == null) throw  new IllegalArgumentException("GM: Condition 'customerName == null' is always 'false' ");
+        //if (customerName.equals("\u0000")) throw new IllegalArgumentException("doesn't work");
         this.customerName = customerName;
     }
 
