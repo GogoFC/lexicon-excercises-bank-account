@@ -3,7 +3,7 @@ package se.lexicon;
 public class Main {
     public static void main(String[] args) {
 
-        BankAccount goran = new BankAccount("Goran", "2703200023", "goran@aol.com",1000);
+        BankAccount goran = new BankAccount("Goran", "2703200023", "goran@aol.com",1000, "\u0000");
 
         System.out.println("Balance: " + goran.getAccountBalance());
         System.out.println("IBAN: " + goran.getAccountNumber());
@@ -16,6 +16,7 @@ public class Main {
         //goran.withdrawMoney(1);
         System.out.println(goran.customerInfo());
 
+        System.out.println("Printing notNull:_" + goran.getNotNull() + "_.");
 
     }
 }

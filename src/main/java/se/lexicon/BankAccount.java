@@ -12,11 +12,21 @@ public class BankAccount {
     private String customerEmail;
     private String customerPhone;
 
+    private String notNull;
+
+    public String getNotNull() {
+        return notNull;
+    }
 
 
+    public void setNotNull(String notNull) {
+        this.notNull = null;
+        if (notNull == null) throw new IllegalArgumentException("not null");
+        this.notNull = notNull;
+    }
 
 
-    public BankAccount ( String customerName, String customerPhone, String customerEmail, double accountBalance ){
+    public BankAccount (String customerName, String customerPhone, String customerEmail, double accountBalance, String notNull){
         setCustomerName(customerName);
         //this.customerName = customerName;
         setCustomerPhone(customerPhone);
@@ -24,6 +34,7 @@ public class BankAccount {
         //setAccountNumber(accountNumber);
         setAccountBalance(accountBalance);
         //this.accountNumber = Iban.random(CountryCode.SE);
+        setNotNull(notNull);
     }
 
     public String customerInfo(){
